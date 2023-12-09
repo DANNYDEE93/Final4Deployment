@@ -1,21 +1,31 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-    name: e-shop-ingress
-    annotations:
-        alb.ingress.kubernetes.io/scheme: internet-facing
-        alb.ingress.kubernetes.io/target-type: instance
-        alb.ingress.kubernetes.io/tags: Project=deployment-Final
-
+  name: e-shop-ingress
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/tags: Project=deployment-Final
 spec:
   ingressClassName: alb
   rules:
-    - http:
+    - host: k8s-default-ecommerc-e15c8f8fd7-2072327459.us-east-1.elb.amazonaws.com
+      http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: eshopwebmvc-service
+                name: eshopwebmvc
+                port:
+                  number: 80
+    - host: k8s-default-ecommerc-e15c8f8fd7-2072327459.us-east-1.elb.amazonaws.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: eshoppublicapi
                 port:
                   number: 80

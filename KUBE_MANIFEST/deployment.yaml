@@ -1,5 +1,3 @@
-
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,7 +16,8 @@ spec:
         - name: eshopwebmvc
           image: dannydee93/eshopwebmvc:latest
           ports:
-            - containerPort: 80        
+            - containerPort: 80
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -39,6 +38,7 @@ spec:
           image: dannydee93/eshoppublicapi:latest
           ports:
             - containerPort: 80
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -64,5 +64,6 @@ spec:
             - name: SA_PASSWORD
               value: "@someThingComplicated1234"
             - name: ACCEPT_EULA
-              value: "Y" 
+              value: "Y"
+
 

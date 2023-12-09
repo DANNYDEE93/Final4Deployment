@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web
+  name: web-deployment
 spec:
   replicas: 2
   selector:
@@ -18,34 +18,32 @@ spec:
         - name: web
           image: dannydee93/eshopwebmvc:latest
           ports:
-            - containerPort: 80
-            - containerPort: 443         
+            - containerPort: 80        
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api
+  name: publicapi-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: api
+      app: publicapi
   template:
     metadata:
       labels:
-        app: api
+        app: publicapi
     spec:
       containers:
-        - name: api
+        - name: publicapi
           image: dannydee93/eshoppublicapi:latest
           ports:
             - containerPort: 80
-            - containerPort: 443
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sqlserver
+  name: sqlserver-deployment
 spec:
   replicas: 2
   selector:

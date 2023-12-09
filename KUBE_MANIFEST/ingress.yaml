@@ -9,8 +9,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix
@@ -19,8 +18,7 @@ spec:
                 name: azure_key_vault_endpoint
                 port:
                   number: 80
-
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix

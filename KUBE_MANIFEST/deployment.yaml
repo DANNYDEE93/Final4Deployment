@@ -17,6 +17,15 @@ spec:
           image: dannydee93/eshopwebmvc:latest
           ports:
             - containerPort: 80
+          env:
+            - name: ENVIRONMENT
+              value: "development"  # Set the environment variable value
+
+      # Optional: If using ConfigMap
+      volumes:
+        - name: app-config
+          configMap:
+            name: your-app-config  # Specify the name of your ConfigMap
 
 ---
 apiVersion: apps/v1

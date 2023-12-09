@@ -15,7 +15,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: eshopwebmvc
+                name: azure-key-vault-endpoint
                 port:
                   number: 80
   

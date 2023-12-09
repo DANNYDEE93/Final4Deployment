@@ -25,7 +25,7 @@ spec:
       volumes:
         - name: app-config
           configMap:
-            name: your-app-config  # Specify the name of your ConfigMap
+            name: eshop-config  # Specify the name of your ConfigMap
 
 ---
 apiVersion: apps/v1

@@ -1,11 +1,11 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-    name: e-commerce-ingress
+    name: e-shop-ingress
     annotations:
         alb.ingress.kubernetes.io/scheme: internet-facing
         alb.ingress.kubernetes.io/target-type: instance
-        alb.ingress.kubernetes.io/tags: Environment=staging
+        alb.ingress.kubernetes.io/tags: Project=deployment-Final
 
 spec:
   ingressClassName: alb

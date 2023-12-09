@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service 
 metadata:
-  name: AZURE_KEY_VAULT_ENDPOINT
+  name: azure_key_vault_endpoint
 spec:
   type: NodePort
   selector:
-    app: AZURE_KEY_VAULT_ENDPOINT
+    app: azure_key_vault_endpoint
   ports: 
   - protocol: TCP 
     port: 80

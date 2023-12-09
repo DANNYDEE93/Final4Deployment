@@ -22,11 +22,16 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 var builder = WebApplication.CreateBuilder(args);
 builder.Logging.AddConsole();
 
-if (builder.Environment.IsDevelopment() || builder.Environment.EnvironmentName == "Docker"){
+// Determine if the environment is Development or Docker
+bool isDevelopment = builder.Environment.IsDevelopment() || builder.Environment.EnvironmentName == "Docker";
+
+if (isDevelopment || IsKubernetesDevelopment())
+{
     // Configure SQL Server (local)
     Microsoft.eShopWeb.Infrastructure.Dependencies.ConfigureServices(builder.Configuration, builder.Services);
 }
-else{
+else
+{
     // Configure SQL Server (prod)
     var credential = new ChainedTokenCredential(new AzureDeveloperCliCredential(), new DefaultAzureCredential());
     builder.Configuration.AddAzureKeyVault(new Uri(builder.Configuration["AZURE_KEY_VAULT_ENDPOINT"] ?? ""), credential);
@@ -42,6 +47,11 @@ else{
     });
 }
 
+private bool IsKubernetesDevelopment()
+{
+    string environment = Environment.GetEnvironmentVariable("ENVIRONMENT");
+    return environment == "development";
+}
 builder.Services.AddCookieSettings();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

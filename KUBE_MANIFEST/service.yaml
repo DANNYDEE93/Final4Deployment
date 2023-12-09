@@ -1,7 +1,7 @@
 apiVersion: v1
-kind: Service 
+kind: Service
 metadata:
-  name: eshopwebmvc-deployment
+  name: azure-key-vault-endpoint
 spec:
   type: NodePort
   selector:

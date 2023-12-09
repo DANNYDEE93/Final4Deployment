@@ -46,7 +46,7 @@ else
         options.UseSqlServer(connectionString, sqlOptions => sqlOptions.EnableRetryOnFailure());
     });
 }
-
+Console.WriteLine(AZURE_KEY_VAULT_ENDPOINT);
 private bool IsKubernetesDevelopment()
 {
     string environment = Environment.GetEnvironmentVariable("ENVIRONMENT");
@@ -210,3 +210,5 @@ app.MapFallbackToFile("index.html");
 
 app.Logger.LogInformation("LAUNCHING");
 app.Run();
+
+

@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: eshop-config
 data:
-  environment: Development
+  environment: Production

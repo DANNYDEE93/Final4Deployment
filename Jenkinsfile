@@ -1,5 +1,10 @@
 pipeline {
     agent any
+        environment {
+        AWS_EKS_CLUSTER_NAME = 'cluster01'
+        AWS_EKS_REGION = 'us-east-1'
+        KUBE_MANIFESTS_DIR = '/home/ubuntu/Final4Deployment/KUBE_MANIFEST'
+    }
 
     stages {
         stage('Deploy to EKS') {

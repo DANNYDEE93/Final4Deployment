@@ -13,7 +13,7 @@ pipeline {
                         ]) {
                             sh "aws eks --region us-east-1 update-kubeconfig --name cluster01"
                             //sh "kubectl apply -f deployment.yaml && kubectl apply -f service.yaml && kubectl apply -f ingress.yaml && ingressClass.yaml && configmap.yaml"
-                            sh "kubectl apply -f /home/ubuntu/agent1/workspace/final_Annie-working/Final4Deployment/KUBE_MANIFEST"
+                            sh "kubectl apply -f /home/ubuntu/agent1/workspace/final_Annie-working/KUBE_MANIFEST"
                         }
                     }
                 }

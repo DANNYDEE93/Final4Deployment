@@ -18,7 +18,6 @@ pipeline {
                 }
             }
         }
-    }
     stage('Deploy to EKS') {
         agent { label 'agentEKS' }
         steps {
@@ -36,3 +35,5 @@ pipeline {
         }
     }
 }
+
+

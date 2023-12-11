@@ -5,7 +5,7 @@ pipeline {
         stage('Build Images') {
             agent { label 'agentDocker' }
             steps {
-                sh 'docker-compose build'
+                sh 'docker-compose -f /home/ubuntu/agent1/workspace/final_Annie-working/docker-compose.yml build'
             }
         }
         stage('Login and Push') {
